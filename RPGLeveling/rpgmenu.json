@@ -7,69 +7,57 @@
       {
         "condition": {
           "and": [
-            { "math": [ "u_rpgl_points > 0"] },
-            { "math": [ "u_rpgl_level < u_rpgl_max_level" ] },
-            { "math": [ "u_val('strength_base') < 20" ] }
+            { "math": [ "u_rpgl_points > 0" ] },
+            { "math": [ "u_val('strength_base') < 20" ] },
+            { "or": [ { "math": [ "u_rpgl_level < u_rpgl_max_level" ] }, { "math": [ "u_rpgl_max_level < 0" ] } ] }
           ]
         },
         "text": "Gain Strength",
         "failure_explanation": "Requirements Not Met",
         "failure_topic": "TALK_RPGL_MENU_FAIL",
-        "effect": [
-          { "math": [ "u_val_ass('strength_base', u_val('strength_base') + 1)" ] },
-          { "math": [ "u_rpgl_points--" ] }
-        ],
+        "effect": [ { "math": [ "u_val_ass('strength_base', u_val('strength_base') + 1)" ] }, { "math": [ "u_rpgl_points--" ] } ],
         "topic": "TALK_RPGL_MENU_MAIN"
       },
       {
         "condition": {
           "and": [
-            { "math": [ "u_rpgl_points > 0"] },
-            { "math": [ "u_rpgl_level < u_rpgl_max_level" ] },
-            { "math": [ "u_val('dexterity_base') < 20" ] }
+            { "math": [ "u_rpgl_points > 0" ] },
+            { "math": [ "u_val('dexterity_base') < 20" ] },
+            { "or": [ { "math": [ "u_rpgl_level < u_rpgl_max_level" ] }, { "math": [ "u_rpgl_max_level < 0" ] } ] }
           ]
         },
         "text": "Gain Dexterity",
         "failure_explanation": "Requirements Not Met",
         "failure_topic": "TALK_RPGL_MENU_FAIL",
-        "effect": [
-          { "math": [ "u_val_ass('dexterity_base', u_val('dexterity_base') + 1)" ] },
-          { "math": [ "u_rpgl_points--" ] }
-        ],
+        "effect": [ { "math": [ "u_val_ass('dexterity_base', u_val('dexterity_base') + 1)" ] }, { "math": [ "u_rpgl_points--" ] } ],
         "topic": "TALK_RPGL_MENU_MAIN"
       },
       {
         "condition": {
           "and": [
-            { "math": [ "u_rpgl_points > 0"] },
-            { "math": [ "u_rpgl_level < u_rpgl_max_level" ] },
-            { "math": [ "u_val('intelligence_base') < 20" ] }
+            { "math": [ "u_rpgl_points > 0" ] },
+            { "math": [ "u_val('intelligence_base') < 20" ] },
+            { "or": [ { "math": [ "u_rpgl_level < u_rpgl_max_level" ] }, { "math": [ "u_rpgl_max_level < 0" ] } ] }
           ]
         },
         "text": "Gain Intelligence",
         "failure_explanation": "Requirements Not Met",
         "failure_topic": "TALK_RPGL_MENU_FAIL",
-        "effect": [
-          { "math": [ "u_val_ass('intelligence_base', u_val('intelligence_base') + 1)" ] },
-          { "math": [ "u_rpgl_points--" ] }
-        ],
+        "effect": [ { "math": [ "u_val_ass('intelligence_base', u_val('intelligence_base') + 1)" ] }, { "math": [ "u_rpgl_points--" ] } ],
         "topic": "TALK_RPGL_MENU_MAIN"
       },
       {
         "condition": {
           "and": [
-            { "math": [ "u_rpgl_points > 0"] },
-            { "math": [ "u_rpgl_level < u_rpgl_max_level" ] },
-            { "math": [ "u_val('perception_base') < 20" ] }
+            { "math": [ "u_rpgl_points > 0" ] },
+            { "math": [ "u_val('perception_base') < 20" ] },
+            { "or": [ { "math": [ "u_rpgl_level < u_rpgl_max_level" ] }, { "math": [ "u_rpgl_max_level < 0" ] } ] }
           ]
         },
         "text": "Gain Perception",
-        "failure_explanation": "Requirements Not Met",
+        "failure_explanation": "No level points ",
         "failure_topic": "TALK_RPGL_MENU_FAIL",
-        "effect": [
-          { "math": [ "u_val_ass('perception_base', u_val('perception_base') + 1)" ] },
-          { "math": [ "u_rpgl_points--" ] }
-        ],
+        "effect": [ { "math": [ "u_val_ass('perception_base', u_val('perception_base') + 1)" ] }, { "math": [ "u_rpgl_points--" ] } ],
         "topic": "TALK_RPGL_MENU_MAIN"
       },
       { "text": "Settings", "topic": "TALK_RPGL_MENU_CONFIG" },
@@ -115,62 +103,58 @@
   },
   {
     "type": "talk_topic",
-    "id": "TALK_PERK_MENU_MAX_LEVEL",
-    "dynamic_line": "Set exp required per level.  Does not affect levels already gained, or current level.",
+    "id": "TALK_RPGL_MENU_MAX_LEVEL",
+    "dynamic_line": "Set max level for RPG leveling (-1 = disabled). (Default: 20; Current: <uval:rpgl_max_level>)",
     "responses": [
       {
-        "text": "None (0 exp)",
-        "effect": { "math": [ "u_exp_per_level = 0" ] },
-        "condition": { "math": [ "u_exp_per_level != 0" ] },
-        "failure_explanation": "Current Setting",
-        "failure_topic": "TALK_PERK_MENU_CONFIG",
-        "topic": "TALK_PERK_MENU_CONFIG"
+        "text": "Disable",
+        "effect": { "math": [ "u_rpgl_max_level = -1" ] },
+        "condition": { "math": [ "u_exp_per_level >= 0" ] },
+        "failure_explanation": "Max level aready disabled",
+        "failure_topic": "TALK_RPGL_MENU_MAX_LEVEL",
+        "topic": "TALK_RPGL_MENU_MAX_LEVEL"
       },
       {
-        "text": "Normal (300 XP)",
-        "effect": { "math": [ "u_exp_per_level = 300" ] },
-        "condition": { "math": [ "u_exp_per_level != 300" ] },
-        "failure_explanation": "Current Setting",
-        "failure_topic": "TALK_PERK_MENU_CONFIG",
-        "topic": "TALK_PERK_MENU_CONFIG"
+        "text": "Increase by 10",
+        "effect": { "math": [ "u_rpgl_max_level += 10" ] },
+        "topic": "TALK_RPGL_MENU_MAX_LEVEL"
+      },
+      { "text": "Increase by 1", "effect": { "math": [ "u_rpgl_max_level++" ] }, "topic": "TALK_RPGL_MENU_MAX_LEVEL" },
+      {
+        "text": "Decrease by 1",
+        "effect": { "math": [ "u_rpgl_max_level = max(u_rpgl_max_level - 1, 1)" ] },
+        "condition": { "math": [ "u_rpgl_max_level > 0" ] },
+        "failure_explanation": "Cannot decrease below 1",
+        "failure_topic": "TALK_RPGL_MENU_MAX_LEVEL",
+        "topic": "TALK_RPGL_MENU_MAX_LEVEL"
       },
       {
-        "text": "Large (1000 XP)",
-        "effect": { "math": [ "u_exp_per_level = 1000" ] },
-        "condition": { "math": [ "u_exp_per_level != 1000" ] },
-        "failure_explanation": "Current Setting",
-        "failure_topic": "TALK_PERK_MENU_CONFIG",
-        "topic": "TALK_PERK_MENU_CONFIG"
+        "text": "Decrease by 10",
+        "effect": { "math": [ "u_rpgl_max_level = max(u_rpgl_max_level - 10, 1)" ] },
+        "condition": { "math": [ "u_rpgl_max_level > 0" ] },
+        "failure_explanation": "Cannot decrease below 1",
+        "failure_topic": "TALK_RPGL_MENU_MAX_LEVEL",
+        "topic": "TALK_RPGL_MENU_MAX_LEVEL"
       },
-      {
-        "text": "Very Large (10000 XP)",
-        "effect": { "math": [ "u_exp_per_level = 10000" ] },
-        "condition": { "math": [ "u_exp_per_level != 10000" ] },
-        "failure_explanation": "Current Setting",
-        "failure_topic": "TALK_PERK_MENU_CONFIG",
-        "topic": "TALK_PERK_MENU_CONFIG"
-      },
-      { "text": "Back", "topic": "TALK_PERK_MENU_CONFIG" }
+      { "text": "Back", "topic": "TALK_RPGL_MENU_CONFIG" },
+      { "text": "Quit", "topic": "TALK_DONE" }
     ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_RPGL_MENU_EXP_FORMULA",
-    "dynamic_line": "Edit exp formula for leveling. Format: (constant) * (level + 1) ^ (exponent)",
+    "dynamic_line": "Edit exp formula for leveling. Format: (constant) * (level + 1) ^ (exponent). Note: any changes to the formula will not affect levels already earned, and future levels are only determined on exp gain.",
     "responses": [
       {
-        "text": "None (0 exp)",
-        "effect": { "math": [ "u_exp_per_level = 0" ] },
-        "condition": { "math": [ "u_exp_per_level != 0" ] },
-        "failure_explanation": "Current Setting",
-        "failure_topic": "TALK_PERK_MENU_CONFIG",
-        "topic": "TALK_PERK_MENU_CONFIG"
+        "text": "Increase Exponent by 0.1",
+        "effect": { "math": [ "u_rpgl_exp_exponent += 0.1" ] },
+        "topic": "TALK_RPGL_MENU_EXP_FORMULA"
       },
       {
-        "text": "Normal (300 XP)",
-        "effect": { "math": [ "u_exp_per_level = 300" ] },
-        "condition": { "math": [ "u_exp_per_level != 300" ] },
-        "failure_explanation": "Current Setting",
+        "text": "Decrease Exponent by 0.1",
+        "effect": { "math": [ "u_rpgl_exp_exponent -= 0.1" ] },
+        "condition": { "math": [ "u_rpgl_exp_exponent >= 0" ] },
+        "failure_explanation": "Exponent cannot be negative",
         "failure_topic": "TALK_PERK_MENU_CONFIG",
         "topic": "TALK_PERK_MENU_CONFIG"
       },
