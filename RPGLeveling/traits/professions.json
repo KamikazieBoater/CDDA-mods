@@ -1,0 +1,79 @@
+[
+  {
+    "type": "profession",
+    "ident": "ordinary_magician_stored",
+    "name": "Ordinary Magician",
+    "description": "Always seeking to improve and expand your magical prowess, an earnest and hardworking student of magic, you learned of an outside world where more answers could be found. With nothing but your clothes, and a few \"borrowed\" books from that kindly, cloistered magician, you set out to find what secrets lay hidden just beyond the veil.",
+    "points": 0,
+    "skills": [
+		{ "level": 5, "name": "speech" },
+		{ "level": 3, "name": "firstaid" },
+		{ "level": 5, "name": "mechanics" },
+		{ "level": 5, "name": "traps" },
+		{ "level": 5, "name": "swimming" },
+		{ "level": 5, "name": "fabrication" },
+		{ "level": 5, "name": "cooking" },
+		{ "level": 5, "name": "tailor" },
+		{ "level": 3, "name": "survival" },
+		{ "level": 5, "name": "electronics" },
+		{ "level": 3, "name": "archery" },
+		{ "level": 5, "name": "gun" },
+		{ "level": 3, "name": "pistol" },
+		{ "level": 3, "name": "rifle" },
+		{ "level": 3, "name": "shotgun" },
+		{ "level": 3, "name": "throw" },
+		{ "level": 5, "name": "melee" },
+		{ "level": 5, "name": "bashing" },
+		{ "level": 5, "name": "cutting" },
+		{ "level": 5, "name": "dodge" },
+		{ "level": 5, "name": "stabbing" },
+		{ "level": 5, "name": "unarmed" },
+		{ "level": 5, "name": "chemistry" },
+		{ "level": 5, "name": "spellcraft" }
+	],
+    "items": {
+      "both": {
+        "items": [
+		  "fc_hairpin",
+		  "stockings",
+		  "garter_belt",
+		  "dress_shoes",
+		  "wizard_hat",
+		  "bookstrap",
+		  "marisa_grimoire",
+		  "mini_hakkero",
+		  "laevateinn"
+		]
+      },
+      "male": [ "briefs" ],
+      "female": [ "bra", "boy_shorts" ]
+    },
+    "traits": [ "DANMAKU_C" ],
+	"proficiencies": [ "prof_alchemy" ]
+  },
+  {
+    "type": "profession",
+    "ident": "ordinary_magician",
+    "name": "Ordinary Magician",
+    "description": "Always seeking to improve and expand your magical prowess, an earnest and hardworking student of magic, you learned of an outside world where more answers could be found. With nothing but your clothes, and a few \"borrowed\" books from that kindly, cloistered magician, you set out to find what secrets lay hidden just beyond the veil.",
+    "points": 0,
+    "items": {
+      "both": {
+        "items": [
+		  "fc_hairpin",
+		  "stockings",
+		  "garter_belt",
+		  "dress_shoes",
+		  "wizard_hat",
+		  "bookstrap",
+		  "marisa_grimoire",
+		  "mini_hakkero"
+		]
+      },
+      "male": [ "briefs" ],
+      "female": [ "bra", "boy_shorts" ]
+    },
+    "traits": [ "DANMAKU_C" ],
+	"proficiencies": [ "prof_alchemy" ]
+  }
+]

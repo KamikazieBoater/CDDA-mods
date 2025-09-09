@@ -1,0 +1,36 @@
+[
+  {
+    "type": "ter_furn_transform",
+    "id": "magic_collateral",
+    "terrain": [
+	  { "result": "t_dirt", "valid_flags": [ "BLOCK_WIND" ] },
+      {
+        "result": "t_grass_dead",
+        "valid_terrain": [ "t_moss", "t_grass", "t_grass_long", "t_grass_tall", "t_grass_white", "t_grass_golf" ]
+      },
+      { "result": "t_dirt", "valid_flags": [ "SHRUB" ] },
+      { "result": "t_dirt", "valid_flags": [ "TREE" ] },
+      {
+        "result": "t_dirt",
+        "//": "Reliable fungus killer, but you're not getting your terrain back.",
+        "valid_flags": [ "FUNGUS" ],
+        "message": "The fungal corruption erupts into a shower of embers!"
+      }
+	],
+    "furniture": [
+      { "result": "f_null", "valid_furniture": [ "f_datura", "f_cattails", "f_lily", "f_lotus" ] },
+      { "result": "f_null", "valid_flags": [ "FLOWER", "PLANT" ] },
+      {
+        "result": "f_egg_sacke",
+        "valid_furniture": [ "f_egg_sackbw", "f_egg_sackcs", "f_egg_sackws" ],
+        "message": "The egg sacks swell and burst from the unearthly heat!"
+      },
+      {
+        "result": "f_null",
+        "valid_flags": [ "FUNGUS" ],
+        "message": "The fungal corruption erupts into a shower of embers!"
+      },
+	  { "result": "f_null", "valid_flags": [ "BLOCK_WIND", "THIN_OBSTACLE", "FLAMMABLE_ASH" ] }
+	]
+  }
+]
