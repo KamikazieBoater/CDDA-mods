@@ -1,0 +1,30 @@
+[
+  {
+    "type": "effect_type",
+    "id": "ogres_strength",
+	"copy-from": "ogres_strength",
+	"override": true,
+    "base_mods": { "str_mod": [ 20 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "eagles_sight",
+	"copy-from": "eagles_sight",
+	"override": true,
+    "base_mods": { "per_mod": [ 20 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "cats_grace",
+	"copy-from": "cats_grace",
+	"override": true,
+    "base_mods": { "dex_mod": [ 20 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "foxs_cunning",
+	"copy-from": "foxs_cunning",
+	"override": true,
+    "base_mods": { "int_mod": [ 20 ] }
+  }
+]

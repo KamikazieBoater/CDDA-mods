@@ -1,0 +1,14 @@
+[
+  {
+    "type": "scenario",
+    "id": "magic_basement",
+    "copy-from": "magic_basement",
+    "extend": { "professions": [ "ordinary_magician" ] }
+  },
+  {
+    "type": "scenario",
+    "id": "lake_retreat",
+    "copy-from": "lake_retreat",
+    "extend": { "professions": [ "ordinary_magician" ] }
+  }
+]

@@ -1,0 +1,41 @@
+[
+  {
+    "type": "dream",
+    "messages": [
+      "You have a vague dream of an endless barren field, shrouded in fog.",
+	  "You dream of arcane runes and sigils forming and fading in rapid succession, some familiar, many unknown."
+	],
+    "category": "MANATOUCHED",
+    "strength": 1
+  },
+  {
+    "type": "dream",
+    "messages": [
+      "You dream of a mass grave, countless undead laid to rest for good.",
+      "You dream of a verdant forest, air thick with the scent of magical flora."
+	],
+    "category": "MANATOUCHED",
+    "strength": 2
+  },
+  {
+    "type": "dream",
+    "messages": [
+      "You dream of a strange hooded figure, whispering orders in a language you don't understand.",
+      "You have a dream of a portal, crumbling and collapsing."
+    ],
+    "category": "MANATOUCHED",
+    "strength": 3
+  },
+  {
+    "type": "dream",
+    "messages": [
+      "You dream of strange imagery, of what looks like tattered cloth, fraying threads depicting an infinite host of universes.",
+      "You dream of the stars aligning, of worlds almost being shaken apart.",
+	  "You have a vivid dream of walking through endless library stacks, rare and priceless grimoires all yours for the taking.",
+      "You have a strange dream of otherworldly monsters, forced to kneel before a human figure.",
+      "You have a strange dream of an exotic forest, growing over a burnt battlefield."
+    ],
+    "category": "MANATOUCHED",
+    "strength": 4
+  }
+]

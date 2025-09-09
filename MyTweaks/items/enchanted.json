@@ -1,0 +1,64 @@
+[
+  {
+    "copy-from": "mring_platinum",
+    "type": "TOOL_ARMOR",
+    "id": "mring_consolidation",
+    "name": { "str": "ring of consolidation", "str_pl": "rings of consolidation" },
+    "description": "A platinum ring that resonates with the combined power of others. Excludes the use of any other magic ring.",
+    "flags": [ "WATER_FRIENDLY", "ALLOWS_NATURAL_ATTACKS", "SUPER_FANCY", "STURDY", "SKINTIGHT", "ONE_PER_LAYER" ],
+    "relic_data": {
+      "passive_effects": [
+        {
+          "has": "WORN",
+          "condition": "ALWAYS",
+          "values": [ { "value": "ARMOR_CUT", "add": -10 }, { "value": "ARMOR_BASH", "add": -10 }, { "value": "ARMOR_STAB", "add": -10 }, { "value": "ARMOR_BULLET", "add": -5 },
+            { "value": "SPEED", "multiply": 0.15, "add": 40 },
+			{ "value": "MOVE_COST", "add": -20 },
+            { "value": "STRENGTH", "add": 5 },
+            { "value": "DEXTERITY", "add": 5 },
+            { "value": "INTELLIGENCE", "add": 5 },
+            { "value": "PERCEPTION", "add": 5 },
+            { "value": "BONUS_DODGE", "add": 2 },
+			{ "value": "MAX_MANA", "add": 2000 } ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "TOOL",
+    "id": "mini_hakkero",
+    "copy-from": "heat_cube",
+    "name": "mini-hakkero",
+    "description": "An eight-trigram furnace size of your fist.",
+    "flags": [ "ALLOWS_REMOTE_USE", "FIRE", "NO_UNLOAD" ],
+    "charges_per_use": 0,
+    "sub": "hotplate",
+    "relic_data": { "charge_info": { "recharge_type": "periodic", "time": "1 h", "regenerate_ammo": true } },
+    "pocket_data": [ { "pocket_type": "MAGAZINE", "holster": true, "ammo_restriction": { "crystallized_mana": 1000 } } ],
+    "use_action": [
+      "HOTPLATE",
+      "HEAT_FOOD",
+      {
+        "type": "transform",
+        "target": "mini_hakkero_torch_on",
+        "active": true,
+        "msg": "You activate the mini-hakkero and it emits a large flame from the top, one that does radiate heat, but won't burn anything.",
+        "menu_text": "Activate torch mode",
+        "moves": 150
+      },
+      { "type": "firestarter" }
+    ]
+  },
+  {
+    "id": "mini_hakkero_torch_on",
+    "copy-from": "mini_hakkero",
+    "type": "TOOL",
+    "name": { "str": "mini-hakkero (torch on)", "str_pl": "mini-hakkeros (torch on)" },
+    "description": "The mini-hakkero in the torch configuration, where it emits warmth and a bright flame that does not burn.",
+    "turns_per_charge": 10000,
+    "revert_to": "mini_hakkero",
+    "use_action": { "target": "mini_hakkero", "msg": "The torch flame is extinguished.", "menu_text": "Turn off", "type": "transform" },
+    "emits": [ "emit_hot_air2_stream" ],
+    "flags": [ "LIGHT_15", "TRADER_AVOID", "ALLOWS_REMOTE_USE" ]
+  }
+]

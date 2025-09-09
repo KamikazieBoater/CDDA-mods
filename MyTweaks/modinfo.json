@@ -1,0 +1,12 @@
+[
+  {
+    "type": "MOD_INFO",
+    "ident": "kb_tweaks",
+    "name": "My Tweaks",
+    "authors": [ "KamikazieBoater" ],
+    "maintainers": [ "KamikazieBoater" ],
+    "description": "Extensions and tweaks to existing content.",
+    "category": "content",
+    "dependencies": [ "dda", "magiclysm" ]
+  }
+]
