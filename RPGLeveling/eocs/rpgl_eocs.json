@@ -6,14 +6,15 @@
   },
   {
     "type": "effect_on_condition",
-    "id": "EOC_rpgl_try_init",
+    "id": "EOC_rpgl_game_start",
+    "eoc_type": "EVENT",
+    "required_event": "game_begin",
     "condition": { "and": [ { "not": { "u_has_trait": "rpgl_container" } } ] },
     "effect": [
-      { "open_dialogue": { "topic": "TALK_RPGL_MENU_INIT" } },
-      { "run_eocs": "EOC_rpgl_try_init", "time_in_future": "30 seconds" },
       {
-        "u_message": "Configuration menu closed, if RPG Leveling was not properly configured, the menu will open again in 30 seconds."
-      }
+        "u_message": "RPG Leveling loaded!  You should now have a mutation called \"RPG Leveling\" that can be activated at any time to access the level-up and configuration menus.  If you do not, you can enable the mod manually by activating the \"EOC_rpgl_init\" EOC in debug."
+      },
+      { "run_eocs": "EOC_rpgl_init" }
     ]
   },
   {
@@ -48,7 +49,10 @@
     "type": "effect_on_condition",
     "id": "EOC_rpgl_level_up",
     "condition": {
-      "and": [ { "math": [ "u_rpgl_exp_current >= u_rpgl_exp_to_level" ] }, { "math": [ "u_rpgl_level < u_rpgl_max_level" ] } ]
+      "and": [
+        { "math": [ "u_rpgl_exp_current >= u_rpgl_exp_to_level" ] },
+        { "or": [ { "math": [ "u_rpgl_level < u_rpgl_max_level" ] }, { "math": [ "u_rpgl_max_level < 0" ] } ] }
+      ]
     },
     "effect": [
       { "math": [ "u_rpgl_points++" ] },
