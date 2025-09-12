@@ -14,6 +14,17 @@
       { "type": "cold", "multiply": { "math": [ "-u_artl_boon_dr_general" ] } },
       { "type": "biological", "multiply": { "math": [ "-u_artl_boon_dr_general" ] } }
     ],
+    "melee_damage_bonus": [
+      { "type": "bash", "multiply": { "math": [ "u_artl_boon_dmg_general" ] } },
+      { "type": "cut", "multiply": { "math": [ "u_artl_boon_dmg_general" ] } },
+      { "type": "stab", "multiply": { "math": [ "u_artl_boon_dmg_general" ] } },
+      { "type": "bullet", "multiply": { "math": [ "u_artl_boon_dmg_general" ] } },
+      { "type": "acid", "multiply": { "math": [ "u_artl_boon_dmg_general" ] } },
+      { "type": "electric", "multiply": { "math": [ "u_artl_boon_dmg_general" ] } },
+      { "type": "heat", "multiply": { "math": [ "u_artl_boon_dmg_general" ] } },
+      { "type": "cold", "multiply": { "math": [ "u_artl_boon_dmg_general" ] } },
+      { "type": "biological", "multiply": { "math": [ "u_artl_boon_dmg_general" ] } }
+    ],
     "values": [
       { "value": "SPEED", "add": { "math": [ "u_artl_boon_speed" ] } },
       { "value": "ATTACK_SPEED", "add": { "math": [ "u_artl_boon_atk_speed" ] } },

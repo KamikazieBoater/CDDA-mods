@@ -54,64 +54,120 @@
         "text": "Strength +1",
         "failure_explanation": "Limits: base strength < 20",
         "failure_topic": "TALK_ARTL_MENU_FAIL",
-        "effect": [ { "math": [ "u_val('strength_base')++" ] }, { "math": [ "u_artl_exp -= u_artl_cost_vhi" ] } ],
-        "topic": "TALK_ARTL_MENU_MAIN"
+        "trial": { "type": "CONDITION", "condition": { "math": [ "u_artl_exp >= 2 * u_artl_cost_vhi" ] } },
+        "success": {
+          "effect": [ { "math": [ "u_val('strength_base')++" ] }, { "math": [ "u_artl_exp -= u_artl_cost_vhi" ] } ],
+          "topic": "TALK_ARTL_MENU_COST_VHI"
+        },
+        "failure": {
+          "effect": [ { "math": [ "u_val('strength_base')++" ] }, { "math": [ "u_artl_exp -= u_artl_cost_vhi" ] } ],
+          "topic": "TALK_ARTL_MENU_MAIN"
+        }
       },
       {
         "condition": { "math": [ "u_val('dexterity_base') < 20" ] },
         "text": "Dexterity +1",
         "failure_explanation": "Limits: base dexterity < 20",
         "failure_topic": "TALK_ARTL_MENU_FAIL",
-        "effect": [ { "math": [ "u_val('dexterity_base')++" ] }, { "math": [ "u_artl_exp -= u_artl_cost_vhi" ] } ],
-        "topic": "TALK_ARTL_MENU_MAIN"
+        "trial": { "type": "CONDITION", "condition": { "math": [ "u_artl_exp >= 2 * u_artl_cost_vhi" ] } },
+        "success": {
+          "effect": [ { "math": [ "u_val('dexterity_base')++" ] }, { "math": [ "u_artl_exp -= u_artl_cost_vhi" ] } ],
+          "topic": "TALK_ARTL_MENU_COST_VHI"
+        },
+        "failure": {
+          "effect": [ { "math": [ "u_val('dexterity_base')++" ] }, { "math": [ "u_artl_exp -= u_artl_cost_vhi" ] } ],
+          "topic": "TALK_ARTL_MENU_MAIN"
+        }
       },
       {
         "condition": { "math": [ "u_val('intelligence_base') < 20" ] },
         "text": "Intelligence +1",
         "failure_explanation": "Limits: base intelligence < 20",
         "failure_topic": "TALK_ARTL_MENU_FAIL",
-        "effect": [ { "math": [ "u_val('intelligence_base')++" ] }, { "math": [ "u_artl_exp -= u_artl_cost_vhi" ] } ],
-        "topic": "TALK_ARTL_MENU_MAIN"
+        "trial": { "type": "CONDITION", "condition": { "math": [ "u_artl_exp >= 2 * u_artl_cost_vhi" ] } },
+        "success": {
+          "effect": [ { "math": [ "u_val('intelligence_base')++" ] }, { "math": [ "u_artl_exp -= u_artl_cost_vhi" ] } ],
+          "topic": "TALK_ARTL_MENU_COST_VHI"
+        },
+        "failure": {
+          "effect": [ { "math": [ "u_val('intelligence_base')++" ] }, { "math": [ "u_artl_exp -= u_artl_cost_vhi" ] } ],
+          "topic": "TALK_ARTL_MENU_MAIN"
+        }
       },
       {
         "condition": { "math": [ "u_val('perception_base') < 20" ] },
         "text": "Perception +1",
         "failure_explanation": "Limits: base perception < 20",
         "failure_topic": "TALK_ARTL_MENU_FAIL",
-        "effect": [ { "math": [ "u_val('perception_base')++" ] }, { "math": [ "u_artl_exp -= u_artl_cost_vhi" ] } ],
-        "topic": "TALK_ARTL_MENU_MAIN"
+        "trial": { "type": "CONDITION", "condition": { "math": [ "u_artl_exp >= 2 * u_artl_cost_vhi" ] } },
+        "success": {
+          "effect": [ { "math": [ "u_val('perception_base')++" ] }, { "math": [ "u_artl_exp -= u_artl_cost_vhi" ] } ],
+          "topic": "TALK_ARTL_MENU_COST_VHI"
+        },
+        "failure": {
+          "effect": [ { "math": [ "u_val('perception_base')++" ] }, { "math": [ "u_artl_exp -= u_artl_cost_vhi" ] } ],
+          "topic": "TALK_ARTL_MENU_MAIN"
+        }
       },
       {
         "condition": { "math": [ "u_artl_boon_speed < 100" ] },
-        "text": "Speed +5",
+        "text": "Speed +5 (Current: <u_val:artl_boon_speed>)",
         "failure_explanation": "Limits: bonus speed < 100",
         "failure_topic": "TALK_ARTL_MENU_FAIL",
-        "effect": [ { "math": [ "u_artl_boon_speed += 5" ] }, { "math": [ "u_artl_exp -= u_artl_cost_vhi" ] } ],
-        "topic": "TALK_ARTL_MENU_MAIN"
+        "trial": { "type": "CONDITION", "condition": { "math": [ "u_artl_exp >= 2 * u_artl_cost_vhi" ] } },
+        "success": {
+          "effect": [ { "math": [ "u_artl_boon_speed += 5" ] }, { "math": [ "u_artl_exp -= u_artl_cost_vhi" ] } ],
+          "topic": "TALK_ARTL_MENU_COST_VHI"
+        },
+        "failure": {
+          "effect": [ { "math": [ "u_artl_boon_speed += 5" ] }, { "math": [ "u_artl_exp -= u_artl_cost_vhi" ] } ],
+          "topic": "TALK_ARTL_MENU_MAIN"
+        }
       },
       {
         "condition": { "math": [ "u_artl_boon_move_cost < 0.5" ] },
-        "text": "Move Cost Mult -0.1",
+        "text": "Move Cost Mult -0.1 (Current: -<u_val:artl_boon_move_cost>)",
         "failure_explanation": "Limits: move cost multiplier > -0.5",
         "failure_topic": "TALK_ARTL_MENU_FAIL",
-        "effect": [ { "math": [ "u_artl_boon_move_cost += 0.1" ] }, { "math": [ "u_artl_exp -= u_artl_cost_vhi" ] } ],
-        "topic": "TALK_ARTL_MENU_MAIN"
+        "trial": { "type": "CONDITION", "condition": { "math": [ "u_artl_exp >= 2 * u_artl_cost_vhi" ] } },
+        "success": {
+          "effect": [ { "math": [ "u_artl_boon_move_cost += 0.1" ] }, { "math": [ "u_artl_exp -= u_artl_cost_vhi" ] } ],
+          "topic": "TALK_ARTL_MENU_COST_VHI"
+        },
+        "failure": {
+          "effect": [ { "math": [ "u_artl_boon_move_cost += 0.1" ] }, { "math": [ "u_artl_exp -= u_artl_cost_vhi" ] } ],
+          "topic": "TALK_ARTL_MENU_MAIN"
+        }
       },
       {
         "condition": { "math": [ "u_artl_boon_dodge_chance < 5" ] },
-        "text": "Dodge Chance +1",
+        "text": "Dodge Chance +1 (Current: <u_val:artl_boon_dodge_chance>)",
         "failure_explanation": "Limits: bonus dodge chance < 5",
         "failure_topic": "TALK_ARTL_MENU_FAIL",
-        "effect": [ { "math": [ "u_artl_boon_dodge_chance += 1" ] }, { "math": [ "u_artl_exp -= u_artl_cost_vhi" ] } ],
-        "topic": "TALK_ARTL_MENU_MAIN"
+        "trial": { "type": "CONDITION", "condition": { "math": [ "u_artl_exp >= 2 * u_artl_cost_vhi" ] } },
+        "success": {
+          "effect": [ { "math": [ "u_artl_boon_dodge_chance += 1" ] }, { "math": [ "u_artl_exp -= u_artl_cost_vhi" ] } ],
+          "topic": "TALK_ARTL_MENU_COST_VHI"
+        },
+        "failure": {
+          "effect": [ { "math": [ "u_artl_boon_dodge_chance += 1" ] }, { "math": [ "u_artl_exp -= u_artl_cost_vhi" ] } ],
+          "topic": "TALK_ARTL_MENU_MAIN"
+        }
       },
       {
         "condition": { "math": [ "u_artl_boon_bonus_dodge < 3" ] },
-        "text": "Bonus Dodge +1",
+        "text": "Bonus Dodge +1 (Current: <u_val:artl_boon_bonus_dodge>)",
         "failure_explanation": "Limits: bonus dodge < 3",
         "failure_topic": "TALK_ARTL_MENU_FAIL",
-        "effect": [ { "math": [ "u_artl_boon_bonus_dodge += 1" ] }, { "math": [ "u_artl_exp -= u_artl_cost_vhi" ] } ],
-        "topic": "TALK_ARTL_MENU_MAIN"
+        "trial": { "type": "CONDITION", "condition": { "math": [ "u_artl_exp >= 2 * u_artl_cost_vhi" ] } },
+        "success": {
+          "effect": [ { "math": [ "u_artl_boon_bonus_dodge += 1" ] }, { "math": [ "u_artl_exp -= u_artl_cost_vhi" ] } ],
+          "topic": "TALK_ARTL_MENU_COST_VHI"
+        },
+        "failure": {
+          "effect": [ { "math": [ "u_artl_boon_bonus_dodge += 1" ] }, { "math": [ "u_artl_exp -= u_artl_cost_vhi" ] } ],
+          "topic": "TALK_ARTL_MENU_MAIN"
+        }
       },
       { "text": "Quit", "topic": "TALK_DONE" }
     ]
@@ -124,35 +180,78 @@
       { "text": "Back", "topic": "TALK_ARTL_MENU_MAIN" },
       {
         "condition": { "math": [ "u_artl_boon_atk_speed < 100" ] },
-        "text": "Attack Speed +5",
+        "text": "Attack Speed +5 (Current: <u_val:artl_boon_atk_speed>)",
         "failure_explanation": "Limits: bonus attack speed < 100",
         "failure_topic": "TALK_ARTL_MENU_FAIL",
-        "effect": [ { "math": [ "u_artl_boon_atk_speed += 5" ] }, { "math": [ "u_artl_exp -= u_artl_cost_hi" ] } ],
-        "topic": "TALK_ARTL_MENU_MAIN"
+        "trial": { "type": "CONDITION", "condition": { "math": [ "u_artl_exp >= 2 * u_artl_cost_hi" ] } },
+        "success": {
+          "effect": [ { "math": [ "u_artl_boon_atk_speed += 5" ] }, { "math": [ "u_artl_exp -= u_artl_cost_hi" ] } ],
+          "topic": "TALK_ARTL_MENU_COST_HI"
+        },
+        "failure": {
+          "effect": [ { "math": [ "u_artl_boon_atk_speed += 5" ] }, { "math": [ "u_artl_exp -= u_artl_cost_hi" ] } ],
+          "topic": "TALK_ARTL_MENU_MAIN"
+        }
       },
       {
         "condition": { "math": [ "u_artl_boon_stam_regen < 2" ] },
-        "text": "Stamina Regen Mult +0.1",
+        "text": "Stamina Regen Mult +0.1 (Current: <u_val:artl_boon_stam_regen>)",
         "failure_explanation": "Limits: stamina regen multiplier < 2",
         "failure_topic": "TALK_ARTL_MENU_FAIL",
-        "effect": [ { "math": [ "u_artl_boon_stam_regen += 0.1" ] }, { "math": [ "u_artl_exp -= u_artl_cost_hi" ] } ],
-        "topic": "TALK_ARTL_MENU_MAIN"
+        "trial": { "type": "CONDITION", "condition": { "math": [ "u_artl_exp >= 2 * u_artl_cost_hi" ] } },
+        "success": {
+          "effect": [ { "math": [ "u_artl_boon_stam_regen += 0.1" ] }, { "math": [ "u_artl_exp -= u_artl_cost_hi" ] } ],
+          "topic": "TALK_ARTL_MENU_COST_HI"
+        },
+        "failure": {
+          "effect": [ { "math": [ "u_artl_boon_stam_regen += 0.1" ] }, { "math": [ "u_artl_exp -= u_artl_cost_hi" ] } ],
+          "topic": "TALK_ARTL_MENU_MAIN"
+        }
       },
       {
         "condition": { "math": [ "u_artl_boon_nv < 10" ] },
-        "text": "Night Vision +1",
+        "text": "Night Vision +1 (Current: <u_val:artl_boon_nv>)",
         "failure_explanation": "Limits: bonus night vision < 10",
         "failure_topic": "TALK_ARTL_MENU_FAIL",
-        "effect": [ { "math": [ "u_artl_boon_nv += 1" ] }, { "math": [ "u_artl_exp -= u_artl_cost_hi" ] } ],
-        "topic": "TALK_ARTL_MENU_MAIN"
+        "trial": { "type": "CONDITION", "condition": { "math": [ "u_artl_exp >= 2 * u_artl_cost_hi" ] } },
+        "success": {
+          "effect": [ { "math": [ "u_artl_boon_nv += 1" ] }, { "math": [ "u_artl_exp -= u_artl_cost_hi" ] } ],
+          "topic": "TALK_ARTL_MENU_COST_HI"
+        },
+        "failure": {
+          "effect": [ { "math": [ "u_artl_boon_nv += 1" ] }, { "math": [ "u_artl_exp -= u_artl_cost_hi" ] } ],
+          "topic": "TALK_ARTL_MENU_MAIN"
+        }
       },
       {
         "condition": { "math": [ "u_artl_boon_dr_general < 0.5" ] },
-        "text": "Damage Reduction Mult +0.01",
+        "text": "Damage Reduction Mult +0.01 (Current: <u_val:artl_boon_dr_general>)",
         "failure_explanation": "Limits: damage reduction multiplier < 0.5",
         "failure_topic": "TALK_ARTL_MENU_FAIL",
-        "effect": [ { "math": [ "u_artl_boon_dr_general += 0.01" ] }, { "math": [ "u_artl_exp -= u_artl_cost_hi" ] } ],
-        "topic": "TALK_ARTL_MENU_MAIN"
+        "trial": { "type": "CONDITION", "condition": { "math": [ "u_artl_exp >= 2 * u_artl_cost_hi" ] } },
+        "success": {
+          "effect": [ { "math": [ "u_artl_boon_dr_general += 0.01" ] }, { "math": [ "u_artl_exp -= u_artl_cost_hi" ] } ],
+          "topic": "TALK_ARTL_MENU_COST_HI"
+        },
+        "failure": {
+          "effect": [ { "math": [ "u_artl_boon_dr_general += 0.01" ] }, { "math": [ "u_artl_exp -= u_artl_cost_hi" ] } ],
+          "topic": "TALK_ARTL_MENU_MAIN"
+        }
+      },
+      {
+        "condition": { "math": [ "u_artl_boon_dmg_general < 0.5" ] },
+        "text": "Melee Damage Bonus Mult +0.01 (Current: <u_val:artl_boon_dmg_general>)",
+        "failure_explanation": "Limits: bonus melee damage multiplier < 0.5",
+        "failure_topic": "TALK_ARTL_MENU_FAIL",
+        "trial": { "type": "CONDITION", "condition": { "math": [ "u_artl_exp >= 2 * u_artl_cost_hi" ] } },
+        "success": {
+          "effect": [ { "math": [ "u_artl_boon_dmg_general += 0.01" ] }, { "math": [ "u_artl_exp -= u_artl_cost_hi" ] } ],
+          "topic": "TALK_ARTL_MENU_COST_HI"
+        },
+        "failure": {
+          "effect": [ { "math": [ "u_artl_boon_dmg_general += 0.01" ] }, { "math": [ "u_artl_exp -= u_artl_cost_hi" ] } ],
+          "topic": "TALK_ARTL_MENU_MAIN"
+        }
       },
       { "text": "Quit", "topic": "TALK_DONE" }
     ]
@@ -165,43 +264,78 @@
       { "text": "Back", "topic": "TALK_ARTL_MENU_MAIN" },
       {
         "condition": { "math": [ "u_artl_boon_hp_max < 2" ] },
-        "text": "Max HP Mult +0.1",
+        "text": "Max HP Mult +0.1 (Current: <u_val:artl_boon_hp_max>)",
         "failure_explanation": "Limits: max HP multiplier < 2",
         "failure_topic": "TALK_ARTL_MENU_FAIL",
-        "effect": [ { "math": [ "u_artl_boon_hp_max += 0.1" ] }, { "math": [ "u_artl_exp -= u_artl_cost_mid" ] } ],
-        "topic": "TALK_ARTL_MENU_MAIN"
+        "trial": { "type": "CONDITION", "condition": { "math": [ "u_artl_exp >= 2 * u_artl_cost_mid" ] } },
+        "success": {
+          "effect": [ { "math": [ "u_artl_boon_hp_max += 0.1" ] }, { "math": [ "u_artl_exp -= u_artl_cost_mid" ] } ],
+          "topic": "TALK_ARTL_MENU_COST_MID"
+        },
+        "failure": {
+          "effect": [ { "math": [ "u_artl_boon_hp_max += 0.1" ] }, { "math": [ "u_artl_exp -= u_artl_cost_mid" ] } ],
+          "topic": "TALK_ARTL_MENU_MAIN"
+        }
       },
       {
         "condition": { "math": [ "u_artl_boon_add_cc < 50" ] },
-        "text": "Climate Comfort +/-2",
+        "text": "Climate Comfort +/-2 (Current: +/-<u_val:artl_boon_add_cc>)",
         "failure_explanation": "Limits: temperature range < 100",
         "failure_topic": "TALK_ARTL_MENU_FAIL",
-        "effect": [ { "math": [ "u_artl_boon_add_cc += 2" ] }, { "math": [ "u_artl_exp -= u_artl_cost_mid" ] } ],
-        "topic": "TALK_ARTL_MENU_MAIN"
+        "trial": { "type": "CONDITION", "condition": { "math": [ "u_artl_exp >= 2 * u_artl_cost_mid" ] } },
+        "success": {
+          "effect": [ { "math": [ "u_artl_boon_add_cc += 2" ] }, { "math": [ "u_artl_exp -= u_artl_cost_mid" ] } ],
+          "topic": "TALK_ARTL_MENU_COST_MID"
+        },
+        "failure": {
+          "effect": [ { "math": [ "u_artl_boon_add_cc += 2" ] }, { "math": [ "u_artl_exp -= u_artl_cost_mid" ] } ],
+          "topic": "TALK_ARTL_MENU_MAIN"
+        }
       },
       {
         "condition": { "math": [ "u_artl_boon_stealth < 25" ] },
-        "text": "Stealth +1",
+        "text": "Stealth +1 (Current: <u_val:artl_boon_stealth>)",
         "failure_explanation": "Limits: bonus stealth < 25",
         "failure_topic": "TALK_ARTL_MENU_FAIL",
-        "effect": [ { "math": [ "u_artl_boon_stealth += 1" ] }, { "math": [ "u_artl_exp -= u_artl_cost_mid" ] } ],
-        "topic": "TALK_ARTL_MENU_MAIN"
+        "trial": { "type": "CONDITION", "condition": { "math": [ "u_artl_exp >= 2 * u_artl_cost_mid" ] } },
+        "success": {
+          "effect": [ { "math": [ "u_artl_boon_stealth += 1" ] }, { "math": [ "u_artl_exp -= u_artl_cost_mid" ] } ],
+          "topic": "TALK_ARTL_MENU_COST_MID"
+        },
+        "failure": {
+          "effect": [ { "math": [ "u_artl_boon_stealth += 1" ] }, { "math": [ "u_artl_exp -= u_artl_cost_mid" ] } ],
+          "topic": "TALK_ARTL_MENU_MAIN"
+        }
       },
       {
         "condition": { "math": [ "u_artl_boon_focus < 2" ] },
-        "text": "Focus +5",
+        "text": "Focus +5 (Current: <u_val:artl_boon_focus>)",
         "failure_explanation": "Limits: bonus focus < 50",
         "failure_topic": "TALK_ARTL_MENU_FAIL",
-        "effect": [ { "math": [ "u_artl_boon_focus += 5" ] }, { "math": [ "u_artl_exp -= u_artl_cost_mid" ] } ],
-        "topic": "TALK_ARTL_MENU_MAIN"
+        "trial": { "type": "CONDITION", "condition": { "math": [ "u_artl_exp >= 2 * u_artl_cost_mid" ] } },
+        "success": {
+          "effect": [ { "math": [ "u_artl_boon_focus += 5" ] }, { "math": [ "u_artl_exp -= u_artl_cost_mid" ] } ],
+          "topic": "TALK_ARTL_MENU_COST_MID"
+        },
+        "failure": {
+          "effect": [ { "math": [ "u_artl_boon_focus += 5" ] }, { "math": [ "u_artl_exp -= u_artl_cost_mid" ] } ],
+          "topic": "TALK_ARTL_MENU_MAIN"
+        }
       },
       {
         "condition": { "math": [ "u_artl_boon_pain < 0.5" ] },
-        "text": "Pain Mult -0.1",
+        "text": "Pain Mult -0.1 (Current: -<u_val:artl_boon_pain>)",
         "failure_explanation": "Limits: pain multiplier > -0.5",
         "failure_topic": "TALK_ARTL_MENU_FAIL",
-        "effect": [ { "math": [ "u_artl_boon_pain += 0.1" ] }, { "math": [ "u_artl_exp -= u_artl_cost_mid" ] } ],
-        "topic": "TALK_ARTL_MENU_MAIN"
+        "trial": { "type": "CONDITION", "condition": { "math": [ "u_artl_exp >= 2 * u_artl_cost_mid" ] } },
+        "success": {
+          "effect": [ { "math": [ "u_artl_boon_pain += 0.1" ] }, { "math": [ "u_artl_exp -= u_artl_cost_mid" ] } ],
+          "topic": "TALK_ARTL_MENU_COST_MID"
+        },
+        "failure": {
+          "effect": [ { "math": [ "u_artl_boon_pain += 0.1" ] }, { "math": [ "u_artl_exp -= u_artl_cost_mid" ] } ],
+          "topic": "TALK_ARTL_MENU_MAIN"
+        }
       },
       { "text": "Quit", "topic": "TALK_DONE" }
     ]
@@ -214,43 +348,78 @@
       { "text": "Back", "topic": "TALK_ARTL_MENU_MAIN" },
       {
         "condition": { "math": [ "u_artl_boon_hp_regen < 2" ] },
-        "text": "HP Regen Mult +0.1",
+        "text": "HP Regen Mult +0.1 (Current: <u_val:artl_boon_hp_regen>)",
         "failure_explanation": "Limits: HP regen multiplier < 2",
         "failure_topic": "TALK_ARTL_MENU_FAIL",
-        "effect": [ { "math": [ "u_artl_boon_hp_regen += 0.1" ] }, { "math": [ "u_artl_exp -= u_artl_cost_low" ] } ],
-        "topic": "TALK_ARTL_MENU_MAIN"
+        "trial": { "type": "CONDITION", "condition": { "math": [ "u_artl_exp >= 2 * u_artl_cost_low" ] } },
+        "success": {
+          "effect": [ { "math": [ "u_artl_boon_hp_regen += 0.1" ] }, { "math": [ "u_artl_exp -= u_artl_cost_low" ] } ],
+          "topic": "TALK_ARTL_MENU_COST_LOW"
+        },
+        "failure": {
+          "effect": [ { "math": [ "u_artl_boon_hp_regen += 0.1" ] }, { "math": [ "u_artl_exp -= u_artl_cost_low" ] } ],
+          "topic": "TALK_ARTL_MENU_MAIN"
+        }
       },
       {
         "condition": { "math": [ "u_artl_boon_noise_step < 0.8" ] },
-        "text": "Footstep Noise Mult -0.2",
+        "text": "Footstep Noise Mult -0.2 (Current: -<u_val:artl_boon_noise_step>)",
         "failure_explanation": "Limits: footstep noise mult > -0.8",
         "failure_topic": "TALK_ARTL_MENU_FAIL",
-        "effect": [ { "math": [ "u_artl_boon_noise_step += 0.2" ] }, { "math": [ "u_artl_exp -= u_artl_cost_low" ] } ],
-        "topic": "TALK_ARTL_MENU_MAIN"
+        "trial": { "type": "CONDITION", "condition": { "math": [ "u_artl_exp >= 2 * u_artl_cost_low" ] } },
+        "success": {
+          "effect": [ { "math": [ "u_artl_boon_noise_step += 0.2" ] }, { "math": [ "u_artl_exp -= u_artl_cost_low" ] } ],
+          "topic": "TALK_ARTL_MENU_COST_LOW"
+        },
+        "failure": {
+          "effect": [ { "math": [ "u_artl_boon_noise_step += 0.2" ] }, { "math": [ "u_artl_exp -= u_artl_cost_low" ] } ],
+          "topic": "TALK_ARTL_MENU_MAIN"
+        }
       },
       {
         "condition": { "math": [ "u_artl_boon_recoil < 0.5" ] },
-        "text": "Recoil Mult -0.1",
+        "text": "Recoil Mult -0.1 (Current: -<u_val:artl_boon_recoil>)",
         "failure_explanation": "Limits: recoil multiplier > -0.5",
         "failure_topic": "TALK_ARTL_MENU_FAIL",
-        "effect": [ { "math": [ "u_artl_boon_recoil += 0.1" ] }, { "math": [ "u_artl_exp -= u_artl_cost_low" ] } ],
-        "topic": "TALK_ARTL_MENU_MAIN"
+        "trial": { "type": "CONDITION", "condition": { "math": [ "u_artl_exp >= 2 * u_artl_cost_low" ] } },
+        "success": {
+          "effect": [ { "math": [ "u_artl_boon_recoil += 0.1" ] }, { "math": [ "u_artl_exp -= u_artl_cost_low" ] } ],
+          "topic": "TALK_ARTL_MENU_COST_LOW"
+        },
+        "failure": {
+          "effect": [ { "math": [ "u_artl_boon_recoil += 0.1" ] }, { "math": [ "u_artl_exp -= u_artl_cost_low" ] } ],
+          "topic": "TALK_ARTL_MENU_MAIN"
+        }
       },
       {
         "condition": { "math": [ "u_artl_boon_dispersion < 0.75" ] },
-        "text": "Weapon Dispersion Mult -0.05",
+        "text": "Weapon Dispersion Mult -0.05 (Current: -<u_val:artl_boon_dispersion>)",
         "failure_explanation": "Limits: dispersion multiplier > -0.75",
         "failure_topic": "TALK_ARTL_MENU_FAIL",
-        "effect": [ { "math": [ "u_artl_boon_dispersion += 0.05" ] }, { "math": [ "u_artl_exp -= u_artl_cost_low" ] } ],
-        "topic": "TALK_ARTL_MENU_MAIN"
+        "trial": { "type": "CONDITION", "condition": { "math": [ "u_artl_exp >= 2 * u_artl_cost_low" ] } },
+        "success": {
+          "effect": [ { "math": [ "u_artl_boon_dispersion += 0.05" ] }, { "math": [ "u_artl_exp -= u_artl_cost_low" ] } ],
+          "topic": "TALK_ARTL_MENU_COST_LOW"
+        },
+        "failure": {
+          "effect": [ { "math": [ "u_artl_boon_dispersion += 0.05" ] }, { "math": [ "u_artl_exp -= u_artl_cost_low" ] } ],
+          "topic": "TALK_ARTL_MENU_MAIN"
+        }
       },
       {
         "condition": { "math": [ "u_artl_boon_stam_max < 10000" ] },
-        "text": "Max Stamina +250",
+        "text": "Max Stamina +250 (Current: <u_val:artl_boon_stam_max>)",
         "failure_explanation": "Limits: bonus max stamina < 10000",
         "failure_topic": "TALK_ARTL_MENU_FAIL",
-        "effect": [ { "math": [ "u_artl_boon_stam_max += 250" ] }, { "math": [ "u_artl_exp -= u_artl_cost_low" ] } ],
-        "topic": "TALK_ARTL_MENU_MAIN"
+        "trial": { "type": "CONDITION", "condition": { "math": [ "u_artl_exp >= 2 * u_artl_cost_low" ] } },
+        "success": {
+          "effect": [ { "math": [ "u_artl_boon_stam_max += 250" ] }, { "math": [ "u_artl_exp -= u_artl_cost_low" ] } ],
+          "topic": "TALK_ARTL_MENU_COST_LOW"
+        },
+        "failure": {
+          "effect": [ { "math": [ "u_artl_boon_stam_max += 250" ] }, { "math": [ "u_artl_exp -= u_artl_cost_low" ] } ],
+          "topic": "TALK_ARTL_MENU_MAIN"
+        }
       },
       { "text": "Quit", "topic": "TALK_DONE" }
     ]
@@ -263,19 +432,33 @@
       { "text": "Back", "topic": "TALK_ARTL_MENU_MAIN" },
       {
         "condition": { "math": [ "u_artl_boon_weight < 50000" ] },
-        "text": "Carry Weight +1 kg",
+        "text": "Carry Weight +1 kg (Current: <u_val:artl_boon_weight> g)",
         "failure_explanation": "Limits: bonus carry weight < 50 kg",
         "failure_topic": "TALK_ARTL_MENU_FAIL",
-        "effect": [ { "math": [ "u_artl_boon_weight += 1000" ] }, { "math": [ "u_artl_exp -= u_artl_cost_min" ] } ],
-        "topic": "TALK_ARTL_MENU_MAIN"
+        "trial": { "type": "CONDITION", "condition": { "math": [ "u_artl_exp >= 2 * u_artl_cost_min" ] } },
+        "success": {
+          "effect": [ { "math": [ "u_artl_boon_weight += 1000" ] }, { "math": [ "u_artl_exp -= u_artl_cost_min" ] } ],
+          "topic": "TALK_ARTL_MENU_COST_MIN"
+        },
+        "failure": {
+          "effect": [ { "math": [ "u_artl_boon_weight += 1000" ] }, { "math": [ "u_artl_exp -= u_artl_cost_min" ] } ],
+          "topic": "TALK_ARTL_MENU_MAIN"
+        }
       },
       {
         "condition": { "math": [ "u_artl_boon_noise_yell < 3" ] },
-        "text": "Shout Noise Mult +0.2",
+        "text": "Shout Noise Mult +0.2 (Current: <u_val:artl_boon_noise_yell>)",
         "failure_explanation": "Limits: shout noise multiplier < 3",
         "failure_topic": "TALK_ARTL_MENU_FAIL",
-        "effect": [ { "math": [ "u_artl_boon_noise_yell += 0.2" ] }, { "math": [ "u_artl_exp -= u_artl_cost_min" ] } ],
-        "topic": "TALK_ARTL_MENU_MAIN"
+        "trial": { "type": "CONDITION", "condition": { "math": [ "u_artl_exp >= 2 * u_artl_cost_min" ] } },
+        "success": {
+          "effect": [ { "math": [ "u_artl_boon_noise_yell += 0.2" ] }, { "math": [ "u_artl_exp -= u_artl_cost_min" ] } ],
+          "topic": "TALK_ARTL_MENU_COST_MIN"
+        },
+        "failure": {
+          "effect": [ { "math": [ "u_artl_boon_noise_yell += 0.2" ] }, { "math": [ "u_artl_exp -= u_artl_cost_min" ] } ],
+          "topic": "TALK_ARTL_MENU_MAIN"
+        }
       },
       { "text": "Quit", "topic": "TALK_DONE" }
     ]
@@ -286,6 +469,7 @@
     "dynamic_line": "Choose settings to modify",
     "responses": [
       { "text": "Thresholds", "topic": "TALK_ARTL_MENU_EXP_THRESH" },
+      { "text": "Debug", "topic": "TALK_ARTL_MENU_DEBUG" },
       { "text": "Back", "topic": "TALK_ARTL_MENU_MAIN" },
       { "text": "Quit", "topic": "TALK_DONE" }
     ]
@@ -334,6 +518,40 @@
         "failure_explanation": "Cannot set a cost below 0",
         "failure_topic": "TALK_ARTL_MENU_EXP_THRESH",
         "topic": "TALK_ARTL_MENU_EXP_THRESH"
+      },
+      { "text": "Back", "topic": "TALK_ARTL_MENU_CONFIG" },
+      { "text": "Quit", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_ARTL_MENU_DEBUG",
+    "dynamic_line": {
+      "math": [ "u_artl_debug == 1" ],
+      "yes": "EXP: <u_val:artl_exp>\nDebug is ENABLED",
+      "no": "EXP: <u_val:artl_exp>\nDebug is DISABLED"
+    },
+    "responses": [
+      {
+        "text": "Toggle Debug",
+        "effect": [ { "math": [ "u_artl_debug = (u_artl_debug + 1) % 2" ] } ],
+        "topic": "TALK_ARTL_MENU_DEBUG"
+      },
+      {
+        "text": "Add EXP",
+        "effect": [ { "math": [ "u_artl_exp += num_input('Add EXP:', 0)" ] } ],
+        "condition": { "math": [ "u_artl_debug == 1" ] },
+        "failure_explanation": "Debug must be ENABLED",
+        "failure_topic": "TALK_ARTL_MENU_DEBUG",
+        "topic": "TALK_ARTL_MENU_DEBUG"
+      },
+      {
+        "text": "Set EXP",
+        "effect": [ { "math": [ "u_artl_exp = num_input('Set EXP:', 0)" ] } ],
+        "condition": { "math": [ "u_artl_debug == 1" ] },
+        "failure_explanation": "Debug must be ENABLED",
+        "failure_topic": "TALK_ARTL_MENU_DEBUG",
+        "topic": "TALK_ARTL_MENU_DEBUG"
       },
       { "text": "Back", "topic": "TALK_ARTL_MENU_CONFIG" },
       { "text": "Quit", "topic": "TALK_DONE" }

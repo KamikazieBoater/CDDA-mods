@@ -23,6 +23,7 @@
     "condition": { "and": [ { "not": { "u_has_trait": "artl_container" } } ] },
     "effect": [
       { "math": [ "u_artl_exp = 0" ] },
+      { "math": [ "u_artl_debug = 0" ] },
       { "math": [ "u_artl_cost_vhi = 250" ] },
       { "math": [ "u_artl_cost_hi = 150" ] },
       { "math": [ "u_artl_cost_mid = 100" ] },
@@ -48,6 +49,7 @@
       { "math": [ "u_artl_boon_pain = 0" ] },
       { "math": [ "u_artl_boon_nv = 0" ] },
       { "math": [ "u_artl_boon_dr_general = 0" ] },
+      { "math": [ "u_artl_boon_dmg_general = 0" ] },
       { "u_add_trait": "artl_container" }
     ]
   },
