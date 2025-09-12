@@ -80,13 +80,13 @@
   {
     "type": "talk_topic",
     "id": "TALK_RPGL_MENU_MAX_LEVEL",
-    "dynamic_line": "Set max level for RPG leveling (-1 = disabled). (Default: 20; Current: <u_val:rpgl_max_level>)",
+    "dynamic_line": "Set max level for RPG leveling (-1 = disabled).  (Default: 20; Current: <u_val:rpgl_max_level>)",
     "responses": [
       {
         "text": "Disable",
         "effect": { "math": [ "u_rpgl_max_level = -1" ] },
         "condition": { "math": [ "u_rpgl_max_level >= 0" ] },
-        "failure_explanation": "Max level aready disabled",
+        "failure_explanation": "Max level already disabled",
         "failure_topic": "TALK_RPGL_MENU_MAX_LEVEL",
         "topic": "TALK_RPGL_MENU_MAX_LEVEL"
       },
@@ -102,16 +102,27 @@
   {
     "type": "talk_topic",
     "id": "TALK_RPGL_MENU_EXP_FORMULA",
-    "dynamic_line": "Edit exp formula for leveling. Format: (constant) * (level + 1).\nDefault: 1000\nCurrent Formula: (<u_val:rpgl_exp_const>) * (<u_val:rpgl_level> + 1)\nEXP: <u_val:rpgl_exp_current>.\nEXP for next level: <u_val:rpgl_exp_to_level>\nNote: any changes to the formula will not affect levels already earned, and future levels are only determined on exp gain.",
+    "dynamic_line": "Edit exp formula for leveling.  Format: (multiplier) * (level + 1) + (constant)\nDefault Multiplier: 1000\nDefault Constant: 0\nCurrent Formula: (<u_val:rpgl_exp_mult>) * (<u_val:rpgl_level> + 1) + (<u_val:rpgl_exp_const>)\nEXP: <u_val:rpgl_exp_current>.\nEXP for next level: <u_val:rpgl_exp_to_level>\nNote: any changes to the formula will not affect levels already earned, and future levels are only determined on exp gain.",
     "responses": [
       {
-        "text": "Enter custom value",
+        "text": "Edit Multiplier Value",
         "effect": [
-          { "math": [ "u_rpgl_exp_const = max(num_input('Enter constant multiplier for exp to next level', 1000), 0)" ] },
+          { "math": [ "u_rpgl_exp_mult = max(num_input('Enter multiplier for exp to next level', 1000), 0)" ] },
+          { "run_eocs": "EOC_rpgl_exp_to_level" }
+        ],
+        "condition": { "math": [ "u_rpgl_exp_mult >= 0" ] },
+        "failure_explanation": "Cannot set a multiplier below 0",
+        "failure_topic": "TALK_RPGL_MENU_EXP_FORMULA",
+        "topic": "TALK_RPGL_MENU_EXP_FORMULA"
+      },
+      {
+        "text": "Edit Constant Value",
+        "effect": [
+          { "math": [ "u_rpgl_exp_const = max(num_input('Enter constant for exp to next level', 1000), 0)" ] },
           { "run_eocs": "EOC_rpgl_exp_to_level" }
         ],
         "condition": { "math": [ "u_rpgl_exp_const >= 0" ] },
-        "failure_explanation": "Cannot set a constant multiplier below 0",
+        "failure_explanation": "Cannot set a constant below 0",
         "failure_topic": "TALK_RPGL_MENU_EXP_FORMULA",
         "topic": "TALK_RPGL_MENU_EXP_FORMULA"
       },

@@ -23,7 +23,8 @@
     "condition": { "and": [ { "not": { "u_has_trait": "rpgl_container" } } ] },
     "effect": [
       { "math": [ "u_rpgl_exp_to_level = 1000" ] },
-      { "math": [ "u_rpgl_exp_const = 1000" ] },
+      { "math": [ "u_rpgl_exp_mult = 1000" ] },
+      { "math": [ "u_rpgl_exp_const = 0" ] },
       { "math": [ "u_rpgl_exp_current = 0" ] },
       { "math": [ "u_rpgl_exp_spent = 0" ] },
       { "math": [ "u_rpgl_level = 0" ] },
@@ -38,12 +39,12 @@
     "id": "EOC_rpgl_on_kill_update",
     "eoc_type": "EVENT",
     "required_event": "character_kills_monster",
-    "effect": [ { "math": [ "u_rpgl_exp_current = u_val('exp') - u_rpgl_exp_spent" ] }, { "run_eocs": "EOC_rpgl_level_up" } ]
+    "effect": [ { "math": [ "u_rpgl_exp_current += _exp" ] }, { "run_eocs": "EOC_rpgl_level_up" } ]
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_rpgl_exp_to_level",
-    "effect": [ { "math": [ "u_rpgl_exp_to_level = u_rpgl_exp_const * (u_rpgl_level + 1)" ] } ]
+    "effect": [ { "math": [ "u_rpgl_exp_to_level = u_rpgl_exp_mult * (u_rpgl_level + 1) + u_rpgl_exp_const" ] } ]
   },
   {
     "type": "effect_on_condition",

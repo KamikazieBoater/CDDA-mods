@@ -1,0 +1,12 @@
+[
+  {
+    "type": "MOD_INFO",
+    "id": "art_leveling",
+    "name": "Artifact Leveling",
+    "authors": [ "KamikazieBoater" ],
+    "maintainers": [ "KamikazieBoater" ],
+    "description": "Gain experience to spend on artifact enchantment upgrades for the leveling mutation.",
+    "category": "misc_additions",
+    "dependencies": [ "dda" ]
+  }
+]

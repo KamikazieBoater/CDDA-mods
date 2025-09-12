@@ -1,0 +1,348 @@
+[
+  {
+    "type": "talk_topic",
+    "id": "TALK_ARTL_MENU_MAIN",
+    "dynamic_line": "EXP: <u_val:artl_exp>",
+    "responses": [
+      {
+        "condition": { "math": [ "u_artl_exp >= u_artl_cost_vhi" ] },
+        "text": "Very High Cost Enhancements",
+        "failure_explanation": "Requirements: at least <u_val:artl_cost_vhi> exp",
+        "failure_topic": "TALK_ARTL_MENU_FAIL",
+        "topic": "TALK_ARTL_MENU_COST_VHI"
+      },
+      {
+        "condition": { "math": [ "u_artl_exp >= u_artl_cost_hi" ] },
+        "text": "High Cost Enhancements",
+        "failure_explanation": "Requirements: at least <u_val:artl_cost_hi> exp",
+        "failure_topic": "TALK_ARTL_MENU_FAIL",
+        "topic": "TALK_ARTL_MENU_COST_HI"
+      },
+      {
+        "condition": { "math": [ "u_artl_exp >= u_artl_cost_mid" ] },
+        "text": "Moderate Cost Enhancements",
+        "failure_explanation": "Requirements: at least <u_val:artl_cost_mid> exp",
+        "failure_topic": "TALK_ARTL_MENU_FAIL",
+        "topic": "TALK_ARTL_MENU_COST_MID"
+      },
+      {
+        "condition": { "math": [ "u_artl_exp >= u_artl_cost_low" ] },
+        "text": "Low Cost Enhancements",
+        "failure_explanation": "Requirements: at least <u_val:artl_cost_low> exp",
+        "failure_topic": "TALK_ARTL_MENU_FAIL",
+        "topic": "TALK_ARTL_MENU_COST_LOW"
+      },
+      {
+        "condition": { "math": [ "u_artl_exp >= u_artl_cost_min" ] },
+        "text": "Minimal Cost Enhancements",
+        "failure_explanation": "Requirements: at least <u_val:artl_cost_min> exp",
+        "failure_topic": "TALK_ARTL_MENU_FAIL",
+        "topic": "TALK_ARTL_MENU_COST_MIN"
+      },
+      { "text": "Settings", "topic": "TALK_ARTL_MENU_CONFIG" },
+      { "text": "Quit", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_ARTL_MENU_COST_VHI",
+    "dynamic_line": "Choose trait to improve (<u_val:artl_cost_vhi> exp each)\nCurrent EXP: <u_val:artl_exp>",
+    "responses": [
+      { "text": "Back", "topic": "TALK_ARTL_MENU_MAIN" },
+      {
+        "condition": { "math": [ "u_val('strength_base') < 20" ] },
+        "text": "Strength +1",
+        "failure_explanation": "Limits: base strength < 20",
+        "failure_topic": "TALK_ARTL_MENU_FAIL",
+        "effect": [ { "math": [ "u_val('strength_base')++" ] }, { "math": [ "u_artl_exp -= u_artl_cost_vhi" ] } ],
+        "topic": "TALK_ARTL_MENU_MAIN"
+      },
+      {
+        "condition": { "math": [ "u_val('dexterity_base') < 20" ] },
+        "text": "Dexterity +1",
+        "failure_explanation": "Limits: base dexterity < 20",
+        "failure_topic": "TALK_ARTL_MENU_FAIL",
+        "effect": [ { "math": [ "u_val('dexterity_base')++" ] }, { "math": [ "u_artl_exp -= u_artl_cost_vhi" ] } ],
+        "topic": "TALK_ARTL_MENU_MAIN"
+      },
+      {
+        "condition": { "math": [ "u_val('intelligence_base') < 20" ] },
+        "text": "Intelligence +1",
+        "failure_explanation": "Limits: base intelligence < 20",
+        "failure_topic": "TALK_ARTL_MENU_FAIL",
+        "effect": [ { "math": [ "u_val('intelligence_base')++" ] }, { "math": [ "u_artl_exp -= u_artl_cost_vhi" ] } ],
+        "topic": "TALK_ARTL_MENU_MAIN"
+      },
+      {
+        "condition": { "math": [ "u_val('perception_base') < 20" ] },
+        "text": "Perception +1",
+        "failure_explanation": "Limits: base perception < 20",
+        "failure_topic": "TALK_ARTL_MENU_FAIL",
+        "effect": [ { "math": [ "u_val('perception_base')++" ] }, { "math": [ "u_artl_exp -= u_artl_cost_vhi" ] } ],
+        "topic": "TALK_ARTL_MENU_MAIN"
+      },
+      {
+        "condition": { "math": [ "u_artl_boon_speed < 100" ] },
+        "text": "Speed +5",
+        "failure_explanation": "Limits: bonus speed < 100",
+        "failure_topic": "TALK_ARTL_MENU_FAIL",
+        "effect": [ { "math": [ "u_artl_boon_speed += 5" ] }, { "math": [ "u_artl_exp -= u_artl_cost_vhi" ] } ],
+        "topic": "TALK_ARTL_MENU_MAIN"
+      },
+      {
+        "condition": { "math": [ "u_artl_boon_move_cost < 0.5" ] },
+        "text": "Move Cost Mult -0.1",
+        "failure_explanation": "Limits: move cost multiplier > -0.5",
+        "failure_topic": "TALK_ARTL_MENU_FAIL",
+        "effect": [ { "math": [ "u_artl_boon_move_cost += 0.1" ] }, { "math": [ "u_artl_exp -= u_artl_cost_vhi" ] } ],
+        "topic": "TALK_ARTL_MENU_MAIN"
+      },
+      {
+        "condition": { "math": [ "u_artl_boon_dodge_chance < 5" ] },
+        "text": "Dodge Chance +1",
+        "failure_explanation": "Limits: bonus dodge chance < 5",
+        "failure_topic": "TALK_ARTL_MENU_FAIL",
+        "effect": [ { "math": [ "u_artl_boon_dodge_chance += 1" ] }, { "math": [ "u_artl_exp -= u_artl_cost_vhi" ] } ],
+        "topic": "TALK_ARTL_MENU_MAIN"
+      },
+      {
+        "condition": { "math": [ "u_artl_boon_bonus_dodge < 3" ] },
+        "text": "Bonus Dodge +1",
+        "failure_explanation": "Limits: bonus dodge < 3",
+        "failure_topic": "TALK_ARTL_MENU_FAIL",
+        "effect": [ { "math": [ "u_artl_boon_bonus_dodge += 1" ] }, { "math": [ "u_artl_exp -= u_artl_cost_vhi" ] } ],
+        "topic": "TALK_ARTL_MENU_MAIN"
+      },
+      { "text": "Quit", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_ARTL_MENU_COST_HI",
+    "dynamic_line": "Choose trait to improve (<u_val:artl_cost_hi> exp each)\nCurrent EXP: <u_val:artl_exp>",
+    "responses": [
+      { "text": "Back", "topic": "TALK_ARTL_MENU_MAIN" },
+      {
+        "condition": { "math": [ "u_artl_boon_atk_speed < 100" ] },
+        "text": "Attack Speed +5",
+        "failure_explanation": "Limits: bonus attack speed < 100",
+        "failure_topic": "TALK_ARTL_MENU_FAIL",
+        "effect": [ { "math": [ "u_artl_boon_atk_speed += 5" ] }, { "math": [ "u_artl_exp -= u_artl_cost_hi" ] } ],
+        "topic": "TALK_ARTL_MENU_MAIN"
+      },
+      {
+        "condition": { "math": [ "u_artl_boon_stam_regen < 2" ] },
+        "text": "Stamina Regen Mult +0.1",
+        "failure_explanation": "Limits: stamina regen multiplier < 2",
+        "failure_topic": "TALK_ARTL_MENU_FAIL",
+        "effect": [ { "math": [ "u_artl_boon_stam_regen += 0.1" ] }, { "math": [ "u_artl_exp -= u_artl_cost_hi" ] } ],
+        "topic": "TALK_ARTL_MENU_MAIN"
+      },
+      {
+        "condition": { "math": [ "u_artl_boon_nv < 10" ] },
+        "text": "Night Vision +1",
+        "failure_explanation": "Limits: bonus night vision < 10",
+        "failure_topic": "TALK_ARTL_MENU_FAIL",
+        "effect": [ { "math": [ "u_artl_boon_nv += 1" ] }, { "math": [ "u_artl_exp -= u_artl_cost_hi" ] } ],
+        "topic": "TALK_ARTL_MENU_MAIN"
+      },
+      {
+        "condition": { "math": [ "u_artl_boon_dr_general < 0.5" ] },
+        "text": "Damage Reduction Mult +0.01",
+        "failure_explanation": "Limits: damage reduction multiplier < 0.5",
+        "failure_topic": "TALK_ARTL_MENU_FAIL",
+        "effect": [ { "math": [ "u_artl_boon_dr_general += 0.01" ] }, { "math": [ "u_artl_exp -= u_artl_cost_hi" ] } ],
+        "topic": "TALK_ARTL_MENU_MAIN"
+      },
+      { "text": "Quit", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_ARTL_MENU_COST_MID",
+    "dynamic_line": "Choose trait to improve (<u_val:artl_cost_mid> exp each)\nCurrent EXP: <u_val:artl_exp>",
+    "responses": [
+      { "text": "Back", "topic": "TALK_ARTL_MENU_MAIN" },
+      {
+        "condition": { "math": [ "u_artl_boon_hp_max < 2" ] },
+        "text": "Max HP Mult +0.1",
+        "failure_explanation": "Limits: max HP multiplier < 2",
+        "failure_topic": "TALK_ARTL_MENU_FAIL",
+        "effect": [ { "math": [ "u_artl_boon_hp_max += 0.1" ] }, { "math": [ "u_artl_exp -= u_artl_cost_mid" ] } ],
+        "topic": "TALK_ARTL_MENU_MAIN"
+      },
+      {
+        "condition": { "math": [ "u_artl_boon_add_cc < 50" ] },
+        "text": "Climate Comfort +/-2",
+        "failure_explanation": "Limits: temperature range < 100",
+        "failure_topic": "TALK_ARTL_MENU_FAIL",
+        "effect": [ { "math": [ "u_artl_boon_add_cc += 2" ] }, { "math": [ "u_artl_exp -= u_artl_cost_mid" ] } ],
+        "topic": "TALK_ARTL_MENU_MAIN"
+      },
+      {
+        "condition": { "math": [ "u_artl_boon_stealth < 25" ] },
+        "text": "Stealth +1",
+        "failure_explanation": "Limits: bonus stealth < 25",
+        "failure_topic": "TALK_ARTL_MENU_FAIL",
+        "effect": [ { "math": [ "u_artl_boon_stealth += 1" ] }, { "math": [ "u_artl_exp -= u_artl_cost_mid" ] } ],
+        "topic": "TALK_ARTL_MENU_MAIN"
+      },
+      {
+        "condition": { "math": [ "u_artl_boon_focus < 2" ] },
+        "text": "Focus +5",
+        "failure_explanation": "Limits: bonus focus < 50",
+        "failure_topic": "TALK_ARTL_MENU_FAIL",
+        "effect": [ { "math": [ "u_artl_boon_focus += 5" ] }, { "math": [ "u_artl_exp -= u_artl_cost_mid" ] } ],
+        "topic": "TALK_ARTL_MENU_MAIN"
+      },
+      {
+        "condition": { "math": [ "u_artl_boon_pain < 0.5" ] },
+        "text": "Pain Mult -0.1",
+        "failure_explanation": "Limits: pain multiplier > -0.5",
+        "failure_topic": "TALK_ARTL_MENU_FAIL",
+        "effect": [ { "math": [ "u_artl_boon_pain += 0.1" ] }, { "math": [ "u_artl_exp -= u_artl_cost_mid" ] } ],
+        "topic": "TALK_ARTL_MENU_MAIN"
+      },
+      { "text": "Quit", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_ARTL_MENU_COST_LOW",
+    "dynamic_line": "Choose trait to improve (<u_val:artl_cost_low> exp each)\nCurrent EXP: <u_val:artl_exp>",
+    "responses": [
+      { "text": "Back", "topic": "TALK_ARTL_MENU_MAIN" },
+      {
+        "condition": { "math": [ "u_artl_boon_hp_regen < 2" ] },
+        "text": "HP Regen Mult +0.1",
+        "failure_explanation": "Limits: HP regen multiplier < 2",
+        "failure_topic": "TALK_ARTL_MENU_FAIL",
+        "effect": [ { "math": [ "u_artl_boon_hp_regen += 0.1" ] }, { "math": [ "u_artl_exp -= u_artl_cost_low" ] } ],
+        "topic": "TALK_ARTL_MENU_MAIN"
+      },
+      {
+        "condition": { "math": [ "u_artl_boon_noise_step < 0.8" ] },
+        "text": "Footstep Noise Mult -0.2",
+        "failure_explanation": "Limits: footstep noise mult > -0.8",
+        "failure_topic": "TALK_ARTL_MENU_FAIL",
+        "effect": [ { "math": [ "u_artl_boon_noise_step += 0.2" ] }, { "math": [ "u_artl_exp -= u_artl_cost_low" ] } ],
+        "topic": "TALK_ARTL_MENU_MAIN"
+      },
+      {
+        "condition": { "math": [ "u_artl_boon_recoil < 0.5" ] },
+        "text": "Recoil Mult -0.1",
+        "failure_explanation": "Limits: recoil multiplier > -0.5",
+        "failure_topic": "TALK_ARTL_MENU_FAIL",
+        "effect": [ { "math": [ "u_artl_boon_recoil += 0.1" ] }, { "math": [ "u_artl_exp -= u_artl_cost_low" ] } ],
+        "topic": "TALK_ARTL_MENU_MAIN"
+      },
+      {
+        "condition": { "math": [ "u_artl_boon_dispersion < 0.75" ] },
+        "text": "Weapon Dispersion Mult -0.05",
+        "failure_explanation": "Limits: dispersion multiplier > -0.75",
+        "failure_topic": "TALK_ARTL_MENU_FAIL",
+        "effect": [ { "math": [ "u_artl_boon_dispersion += 0.05" ] }, { "math": [ "u_artl_exp -= u_artl_cost_low" ] } ],
+        "topic": "TALK_ARTL_MENU_MAIN"
+      },
+      {
+        "condition": { "math": [ "u_artl_boon_stam_max < 10000" ] },
+        "text": "Max Stamina +250",
+        "failure_explanation": "Limits: bonus max stamina < 10000",
+        "failure_topic": "TALK_ARTL_MENU_FAIL",
+        "effect": [ { "math": [ "u_artl_boon_stam_max += 250" ] }, { "math": [ "u_artl_exp -= u_artl_cost_low" ] } ],
+        "topic": "TALK_ARTL_MENU_MAIN"
+      },
+      { "text": "Quit", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_ARTL_MENU_COST_MIN",
+    "dynamic_line": "Choose trait to improve (<u_val:artl_cost_min> exp each)\nCurrent EXP: <u_val:artl_exp>",
+    "responses": [
+      { "text": "Back", "topic": "TALK_ARTL_MENU_MAIN" },
+      {
+        "condition": { "math": [ "u_artl_boon_weight < 50000" ] },
+        "text": "Carry Weight +1 kg",
+        "failure_explanation": "Limits: bonus carry weight < 50 kg",
+        "failure_topic": "TALK_ARTL_MENU_FAIL",
+        "effect": [ { "math": [ "u_artl_boon_weight += 1000" ] }, { "math": [ "u_artl_exp -= u_artl_cost_min" ] } ],
+        "topic": "TALK_ARTL_MENU_MAIN"
+      },
+      {
+        "condition": { "math": [ "u_artl_boon_noise_yell < 3" ] },
+        "text": "Shout Noise Mult +0.2",
+        "failure_explanation": "Limits: shout noise multiplier < 3",
+        "failure_topic": "TALK_ARTL_MENU_FAIL",
+        "effect": [ { "math": [ "u_artl_boon_noise_yell += 0.2" ] }, { "math": [ "u_artl_exp -= u_artl_cost_min" ] } ],
+        "topic": "TALK_ARTL_MENU_MAIN"
+      },
+      { "text": "Quit", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_ARTL_MENU_CONFIG",
+    "dynamic_line": "Choose settings to modify",
+    "responses": [
+      { "text": "Thresholds", "topic": "TALK_ARTL_MENU_EXP_THRESH" },
+      { "text": "Back", "topic": "TALK_ARTL_MENU_MAIN" },
+      { "text": "Quit", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_ARTL_MENU_EXP_THRESH",
+    "dynamic_line": "Edit exp for given thresholds\nVery High: <u_val:artl_cost_vhi> (Default: 250)\nVery High: <u_val:artl_cost_vhi> (Default: 250)\nHigh: <u_val:artl_cost_hi> (Default: 150)\nModerate: <u_val:artl_cost_mid> (Default: 100)\nLow: <u_val:artl_cost_low> (Default: 50)\nVery Low: <u_val:artl_cost_min> (Default: 25)",
+    "responses": [
+      {
+        "text": "Set Very High",
+        "effect": [ { "math": [ "u_artl_cost_vhi = max(num_input('Enter exp for Very High threshold:', 250), 0)" ] } ],
+        "condition": { "math": [ "u_artl_cost_vhi >= 0" ] },
+        "failure_explanation": "Cannot set a cost below 0",
+        "failure_topic": "TALK_ARTL_MENU_EXP_THRESH",
+        "topic": "TALK_ARTL_MENU_EXP_THRESH"
+      },
+      {
+        "text": "Set High",
+        "effect": [ { "math": [ "u_artl_cost_hi = max(num_input('Enter exp for High threshold:', 150), 0)" ] } ],
+        "condition": { "math": [ "u_artl_cost_hi >= 0" ] },
+        "failure_explanation": "Cannot set a cost below 0",
+        "failure_topic": "TALK_ARTL_MENU_EXP_THRESH",
+        "topic": "TALK_ARTL_MENU_EXP_THRESH"
+      },
+      {
+        "text": "Set Moderate",
+        "effect": [ { "math": [ "u_artl_cost_mid = max(num_input('Enter exp for Moderate threshold:', 100), 0)" ] } ],
+        "condition": { "math": [ "u_artl_cost_mid >= 0" ] },
+        "failure_explanation": "Cannot set a cost below 0",
+        "failure_topic": "TALK_ARTL_MENU_EXP_THRESH",
+        "topic": "TALK_ARTL_MENU_EXP_THRESH"
+      },
+      {
+        "text": "Set Low",
+        "effect": [ { "math": [ "u_artl_cost_low = max(num_input('Enter exp for Low threshold:', 50), 0)" ] } ],
+        "condition": { "math": [ "u_artl_cost_low >= 0" ] },
+        "failure_explanation": "Cannot set a cost below 0",
+        "failure_topic": "TALK_ARTL_MENU_EXP_THRESH",
+        "topic": "TALK_ARTL_MENU_EXP_THRESH"
+      },
+      {
+        "text": "Set Very Low",
+        "effect": [ { "math": [ "u_artl_cost_min = max(num_input('Enter exp for Very Low threshold:', 25), 0)" ] } ],
+        "condition": { "math": [ "u_artl_cost_min >= 0" ] },
+        "failure_explanation": "Cannot set a cost below 0",
+        "failure_topic": "TALK_ARTL_MENU_EXP_THRESH",
+        "topic": "TALK_ARTL_MENU_EXP_THRESH"
+      },
+      { "text": "Back", "topic": "TALK_ARTL_MENU_CONFIG" },
+      { "text": "Quit", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_ARTL_MENU_FAIL",
+    "dynamic_line": "You don't have a level point, or don't meet the requirements for this upgrade.",
+    "responses": [ { "text": "Back", "topic": "TALK_ARTL_MENU_MAIN" }, { "text": "Quit", "topic": "TALK_DONE" } ]
+  }
+]

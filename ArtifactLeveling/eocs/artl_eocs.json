@@ -1,0 +1,61 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_artl_open_menu",
+    "effect": [ { "open_dialogue": { "topic": "TALK_ARTL_MENU_MAIN" } } ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_artl_game_start",
+    "eoc_type": "EVENT",
+    "required_event": "game_begin",
+    "condition": { "and": [ { "not": { "u_has_trait": "artl_container" } } ] },
+    "effect": [
+      {
+        "u_message": "Artifact Leveling loaded!  You should now have a mutation called \"Artifact Leveling\" that can be activated at any time to access the level-up and configuration menus.  If you do not, you can enable the mod manually by activating the \"EOC_artl_init\" EOC in debug."
+      },
+      { "run_eocs": "EOC_artl_init" }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_artl_init",
+    "condition": { "and": [ { "not": { "u_has_trait": "artl_container" } } ] },
+    "effect": [
+      { "math": [ "u_artl_exp = 0" ] },
+      { "math": [ "u_artl_cost_vhi = 250" ] },
+      { "math": [ "u_artl_cost_hi = 150" ] },
+      { "math": [ "u_artl_cost_mid = 100" ] },
+      { "math": [ "u_artl_cost_low = 50" ] },
+      { "math": [ "u_artl_cost_min = 25" ] },
+      { "math": [ "u_artl_boon_speed = 0" ] },
+      { "math": [ "u_artl_boon_atk_speed = 0" ] },
+      { "math": [ "u_artl_boon_weight = 0" ] },
+      { "math": [ "u_artl_boon_hp_max = 0" ] },
+      { "math": [ "u_artl_boon_hp_regen = 0" ] },
+      { "math": [ "u_artl_boon_stam_max = 0" ] },
+      { "math": [ "u_artl_boon_stam_regen = 0" ] },
+      { "math": [ "u_artl_boon_noise_step = 0" ] },
+      { "math": [ "u_artl_boon_noise_yell = 0" ] },
+      { "math": [ "u_artl_boon_recoil = 0" ] },
+      { "math": [ "u_artl_boon_dispersion = 0" ] },
+      { "math": [ "u_artl_boon_move_cost = 0" ] },
+      { "math": [ "u_artl_boon_dodge_chance = 0" ] },
+      { "math": [ "u_artl_boon_bonus_dodge = 0" ] },
+      { "math": [ "u_artl_boon_add_cc = 0" ] },
+      { "math": [ "u_artl_boon_stealth = 0" ] },
+      { "math": [ "u_artl_boon_focus = 0" ] },
+      { "math": [ "u_artl_boon_pain = 0" ] },
+      { "math": [ "u_artl_boon_nv = 0" ] },
+      { "math": [ "u_artl_boon_dr_general = 0" ] },
+      { "u_add_trait": "artl_container" }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_artl_on_kill_update",
+    "eoc_type": "EVENT",
+    "required_event": "character_kills_monster",
+    "effect": [ { "math": [ "u_artl_exp += _exp" ] } ]
+  }
+]
