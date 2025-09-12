@@ -1,0 +1,11 @@
+[
+  {
+    "type": "MOD_INFO",
+    "id": "tileset_ultica_bck",
+    "name": "Backup Tileset - Ultica",
+    "authors": [ "KamikazieBoater" ],
+    "description": "Adds the tiles from Ultica to be used as a mod.",
+    "category": "graphical",
+    "dependencies": [ "dda" ]
+  }
+]

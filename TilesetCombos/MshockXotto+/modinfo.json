@@ -1,0 +1,11 @@
+[
+  {
+    "type": "MOD_INFO",
+    "id": "tileset_msx_bck",
+    "name": "Backup Tileset - MSX+",
+    "authors": [ "KamikazieBoater" ],
+    "description": "Adds the tiles from MShockZotto+ to be used as a mod.",
+    "category": "graphical",
+    "dependencies": [ "dda" ]
+  }
+]

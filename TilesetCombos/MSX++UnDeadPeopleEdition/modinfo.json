@@ -1,0 +1,11 @@
+[
+  {
+    "type": "MOD_INFO",
+    "id": "tileset_udp_bck",
+    "name": "Backup Tileset - UnDeadPeople",
+    "authors": [ "KamikazieBoater" ],
+    "description": "Adds the tiles from UDP to be used as a mod.",
+    "category": "graphical",
+    "dependencies": [ "dda" ]
+  }
+]
