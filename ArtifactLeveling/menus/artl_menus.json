@@ -541,16 +541,12 @@
         "text": "Add EXP",
         "effect": [ { "math": [ "u_artl_exp += num_input('Add EXP:', 0)" ] } ],
         "condition": { "math": [ "u_artl_debug == 1" ] },
-        "failure_explanation": "Debug must be ENABLED",
-        "failure_topic": "TALK_ARTL_MENU_DEBUG",
         "topic": "TALK_ARTL_MENU_DEBUG"
       },
       {
         "text": "Set EXP",
         "effect": [ { "math": [ "u_artl_exp = num_input('Set EXP:', 0)" ] } ],
         "condition": { "math": [ "u_artl_debug == 1" ] },
-        "failure_explanation": "Debug must be ENABLED",
-        "failure_topic": "TALK_ARTL_MENU_DEBUG",
         "topic": "TALK_ARTL_MENU_DEBUG"
       },
       { "text": "Back", "topic": "TALK_ARTL_MENU_CONFIG" },

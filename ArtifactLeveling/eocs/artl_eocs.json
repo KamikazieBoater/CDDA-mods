@@ -55,9 +55,16 @@
   },
   {
     "type": "effect_on_condition",
-    "id": "EOC_artl_on_kill_update",
+    "id": "EOC_artl_on_kill_mon_update",
     "eoc_type": "EVENT",
     "required_event": "character_kills_monster",
     "effect": [ { "math": [ "u_artl_exp += _exp" ] } ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_artl_on_kill_npc_update",
+    "eoc_type": "EVENT",
+    "required_event": "character_kills_npc",
+    "effect": [ { "math": [ "u_artl_exp += 100" ] } ]
   }
 ]
