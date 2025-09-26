@@ -64,7 +64,7 @@
     "type": "effect_on_condition",
     "id": "EOC_artl_on_kill_npc_update",
     "eoc_type": "EVENT",
-    "required_event": "character_kills_npc",
+    "required_event": "character_kills_character",
     "effect": [ { "math": [ "u_artl_exp += 100" ] } ]
   }
 ]
