@@ -308,7 +308,7 @@
         }
       },
       {
-        "condition": { "math": [ "u_artl_boon_focus < 2" ] },
+        "condition": { "math": [ "u_artl_boon_focus < 50" ] },
         "text": "Focus +5 (Current: <u_val:artl_boon_focus>)",
         "failure_explanation": "Limits: bonus focus < 50",
         "failure_topic": "TALK_ARTL_MENU_FAIL",
